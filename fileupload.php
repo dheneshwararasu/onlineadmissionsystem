@@ -36,7 +36,7 @@ if (isset($_POST['fpicup'])) {
     $allowedImageTypes = array('image/jpeg', 'image/png', 'image/gif');
     $allowedDocumentTypes = array('application/pdf', 'application/msword', 'application/vnd.openxmlformats-officedocument.wordprocessingml.document');
     $allowedProofTypes = array('image/jpeg', 'image/png', 'image/gif', 'application/pdf');
-    $maxFileSize = 10 * 1024 * 1024; // 10 MB
+    $maxFileSize = 5 * 1024 * 1024; // 5 MB
 
     $picValidation = validateFile($_FILES['fpic'], $allowedImageTypes, $maxFileSize);
     $doc1Validation = validateFile($_FILES['ftndoc'], $allowedDocumentTypes, $maxFileSize);
@@ -69,7 +69,7 @@ if (isset($_POST['fpicup'])) {
     move_uploaded_file($_FILES['fsig']['tmp_name'], $proofpath2))
     {
         // Update the user's profile with the file paths
-        $query = "UPDATE student SET picpath='$picpath', tndocpath='$docpath1', tcdocpath='$docpath2', dmdocpath='$docpath3', dcdocpath='$docpath4', idproofpath='$proofpath1', sigproofpath='$proofpath2' WHERE id='$id'";
+        $query = "UPDATE t_userdoc SET s_pic='$picpath', s_tenmarkpic='$docpath1', s_tencerpic='$docpath2', s_twdmarkpic='$docpath3', s_twdcerpic='$docpath4', s_idprfpic='$proofpath1', s_sigpic='$proofpath2' WHERE s_id='$id'";
         $result = $sp->query($query);
         if ($result) {
             echo "Files uploaded successfully";
