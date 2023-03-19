@@ -3,11 +3,11 @@ error_reporting(0);
 session_start();
 include 'fileupload.php';
 
-// Check if the user is logged in
-//if (!isset($_SESSION['id'])){
-//    header('Location: index.php');
-//    exit();
-//}
+//Check if the user is logged in
+if (!isset($_SESSION['id'])){
+    header('Location: index.php');
+    exit();
+}
 
 ?>
 
