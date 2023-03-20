@@ -7,10 +7,10 @@ if(!isset($con))
     die("Database Not Found");
 }
 
- if (!isset($_SESSION['id']))
-{
-    header("location:logout.php"); //this is the update to prevent redirection
-}
+// if (!isset($_SESSION['id']))
+//{
+//    header("location:logout.php"); //this is the update to prevent redirection
+//}
   
 if(isset($_REQUEST["a_sub"]))
 {
@@ -19,12 +19,12 @@ if(isset($_REQUEST["a_sub"]))
  $apwd=$_POST['a_ps'];
  if($aid!=''&&$apwd!='')
  {
-   $query=mysqli_query($con ,"select * from t_admin where ad_id='".$aid."' and ad_pswd='".$apwd."'");
+   $query=mysqli_query($con ,"select * from t_admin where ad_id='$aid' and ad_pswd='$apwd'");
    $res=mysqli_fetch_row($query);
    if($res)
    {
     $_SESSION['ad']=$aid;
-    header('location:admin.php');
+    header('location:admin_Ahmad.php');
    }
    else
    {
@@ -65,7 +65,7 @@ if(isset($_REQUEST["a_sub"]))
         
     </head>
     <body style="background-image:url('./images/inbg.jpg');">
-                <form id="adminlogin" action="adminlogin.php" method="post">
+                <form id="adminlogin" action="adminlogin_Ahmad.php" method="post">
             
                     
                                 

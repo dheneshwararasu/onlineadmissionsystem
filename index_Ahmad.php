@@ -36,13 +36,13 @@ if (isset($_SESSION['id']))
 
  if($id!=''&&$pwd!='')
  {
-   $username = mysqli_real_escape_string($con, $id);
-   $password = mysqli_real_escape_string($con, $pwd);
+   //$username = mysqli_real_escape_string($con, $id);
+   //$password = mysqli_real_escape_string($con, $pwd);
 
-   $query=mysqli_query($con ,"select * from t_user_data where s_id='$username' and s_pwd='$password'");
+   $query=mysqli_query($con ,"select * from t_user_data where s_id='$id' and s_pwd='$pwd'");
    $res=mysqli_fetch_row($query);
 
-   $query1=mysqli_query($con ,"select * from t_user where s_id='$username'");
+   $query1=mysqli_query($con ,"select * from t_user where s_id='$id'");
    $res1=mysqli_fetch_row($query1);
 
    if($res)

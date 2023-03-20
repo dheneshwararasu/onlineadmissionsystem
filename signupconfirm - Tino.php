@@ -44,17 +44,18 @@ if(isset($_REQUEST["in_sub"]))
     // used the password hashing method to encrypt the password
     $hash = password_hash($stpw, PASSWORD_DEFAULT);
     
-    $sql  = "insert into t_user_data values(";
-    $sql .= "'" . $stid . "',";
-    $sql .= "'" . $hash . "',";
-    $sql .= "'" . $dob . "',";
-    $sql .= "'" . $name . "',";
-    $sql .= "'" . $eml . "',";
-    $sql .= "'" . $mob . "',";
-    $sql .= "sysdate())";
-    
-    
-        mysqli_query($con, $sql);
+	$sql = "INSERT into 't_user_data' (s_id, s_pwd, s_dob, s_name, s_email, s_mob, s_signupdate)
+	VALUES ($stid, $hash, $dob, $name, $eml, $mob, sysdate())";
+
+    //$sql  = "insert into t_user_data values(";
+    //$sql .= "'" . $stid . "',";
+    //$sql .= "'" . $hash . "',";
+    //$sql .= "'" . $dob . "',";
+    //$sql .= "'" . $name . "',";
+    //$sql .= "'" . $eml . "',";
+    //$sql .= "'" . $mob . "',";
+    //$sql .= "sysdate())";
+	mysqli_query($con, $sql);
     
 
  

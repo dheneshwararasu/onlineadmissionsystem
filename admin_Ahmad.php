@@ -5,10 +5,6 @@ session_start();
 
 $con=mysqli_connect("localhost","root","","oas");
  
- if (!isset($_SESSION['id']))
-{
-    header("location:logout.php"); //this is the update to prevent redirection
-}
 
 if($_REQUEST["srchk"]!="")
 {
@@ -95,8 +91,6 @@ if(isset($_REQUEST["submitmarks"]))
     
 }
 
-
-
  function AdminCode()
   {
       $con = mysqli_connect("localhost", "root", "", "oas");
@@ -118,86 +112,83 @@ if(isset($_REQUEST["submitmarks"]))
       return implode($pass);
   }
   
-
 ?>
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title></title>
         <link rel="stylesheet" href="bootstrap/bootstrap.min.css">
-         <link rel="stylesheet" href="bootstrap/bootstrap-theme.min.css">
-       <script src="bootstrap/jquery.min.js"></script>
+        <link rel="stylesheet" href="bootstrap/bootstrap-theme.min.css">
+        <script src="bootstrap/jquery.min.js"></script>
         <script src="bootstrap/bootstrap.min.js"></script>
         <link type="text/css" rel="stylesheet" href="css/admform.css"></link>
         <script src="https://code.jquery.com/jquery-2.1.1.min.js" type="text/javascript"></script>
-       <!--autosearch--> 
+        <!--autosearch--> 
        
-       <script type="text/javascript" src="jquery/jquery-1.8.3.min.js"></script>
+        <script type="text/javascript" src="jquery/jquery-1.8.3.min.js"></script>
         <script type="text/javascript" src="jquery/jquery-ui-1.8.2.custom.min.js"></script> 
-       <link href="css/css.css" rel="stylesheet" type="text/css" />
+        <link href="css/css.css" rel="stylesheet" type="text/css" />
         
-    <!--search table-->       
-<script>
-$(document).ready(function(){
-	$("#search-box").keyup(function(){
-		$.ajax({
-		type: "POST",
-		url: "readID.php",
-		data:'keyword='+$(this).val(),
-		beforeSend: function(){
-			$("#search-box").css("background","#FFF url(LoaderIcon.gif) no-repeat 165px");
-		},
-		success: function(data){
-			$("#suggesstion-box").show();
-			$("#suggesstion-box").html(data);
-			$("#search-box").css("background","#FFF");
-		}
-		});
-	});
-});
+        <!--search table-->       
+        <script>
+        $(document).ready(function(){
+            $("#search-box").keyup(function(){
+                $.ajax({
+                type: "POST",
+                url: "readID.php",
+                data:'keyword='+$(this).val(),
+                beforeSend: function(){
+                    $("#search-box").css("background","#FFF url(LoaderIcon.gif) no-repeat 165px");
+                },
+                success: function(data){
+                    $("#suggesstion-box").show();
+                    $("#suggesstion-box").html(data);
+                    $("#search-box").css("background","#FFF");
+                }
+                });
+            });
+        });
 
-function selectid(val) {
-$("#search-box").val(val);
-$("#suggesstion-box").hide();
-}
-</script>
+        function selectid(val) {
+        $("#search-box").val(val);
+        $("#suggesstion-box").hide();
+        }
+        </script>
         
-        
-       <script>
-            
-            $(document).ready(function()
-{
-	$('#searchtb').keyup(function()
-	{
-		searchTable($(this).val());
-	});
-});
+        <script>
+        $(document).ready(function()
+        {
+            $('#searchtb').keyup(function()
+            {
+                searchTable($(this).val());
+            });
+        });
 
-function searchTable(inputVal)
-{
-	var table = $('#tblData');
-	table.find('tr').each(function(index, row)
-	{
-		var allCells = $(row).find('td');
-		if(allCells.length > 0)
-		{
-			var found = false;
-			allCells.each(function(index, td)
-			{
-				var regExp = new RegExp(inputVal, 'i');
-				if(regExp.test($(td).text()))
-				{
-					found = true;
-					return false;
-				}
-			});
-			if(found == true)$(row).show();
-				else $(row).hide();
-		}
-	});
-}
+        function searchTable(inputVal)
+        {
+            var table = $('#tblData');
+            table.find('tr').each(function(index, row)
+            {
+                var allCells = $(row).find('td');
+                if(allCells.length > 0)
+                {
+                    var found = false;
+                    allCells.each(function(index, td)
+                    {
+                        var regExp = new RegExp(inputVal, 'i');
+                        if(regExp.test($(td).text()))
+                        {
+                            found = true;
+                            return false;
+                        }
+                    });
+                    if(found == true)$(row).show();
+                        else $(row).hide();
+                }
+            });
+        }
 
-            </script>
+        </script>
             
     <!--toggle
             <script>
@@ -216,7 +207,7 @@ function searchTable(inputVal)
             
    <!--auto search-->       
         
-      <script type="text/javascript"> 
+        <script type="text/javascript"> 
 
 $(function() {
 
@@ -479,21 +470,20 @@ include 'adminsession.php';
 
 
                         
-                         <div id="adadmin" class="tab-pane fade">
+                        <div id="adadmin" class="tab-pane fade">
                         <div class="row">
-                                <div class="col-sm-12"> 
-                                   
-                                            <h3>New Manager Details</h3>
-                                            <input type="text" id="txtname"  name="txtname" class="form-control" style="width:200px;margin-left:32px;" placeholder="Name"><br><br>
-                                            <input type="text" id="txteml"  name="txteml" class="form-control" style="width:200px;margin-left:32px;" placeholder="Email ID"><br>
-                                            <input type="submit" value="Create" name="admcreate" class="toggle btn btn-primary" style="margin-left:102px;"/> <br>
-                                            <hr><hr>                          
-                                            <h3>Existing  Managers</h3>
+                            <div class="col-sm-12">
+                                <h3>New Manager Details</h3>
+                                <input type="text" id="txtname"  name="txtname" class="form-control" style="width:200px;margin-left:32px;" placeholder="Name" required="true"><br>
+                                <input type="text" id="txteml"  name="txteml" class="form-control" style="width:200px;margin-left:32px;" placeholder="Email ID" required="true"><br>
+        
+                                <img src="captcha.php" style="width:150px;margin-bottom:5px;margin-left:32px;"/> 
+                                <input type='text' id='txt_captcha' name='txt_captcha' class="form-control" style="width:200px;margin-left:32px;" placeholder="Enter the code" required="true"><br>
+                                <input type="submit" value="Create" name="admcreate" onclick="validate();" class="toggle btn btn-primary" style="margin-left:100px;"/> <br>
+                                <hr><hr>
+                                <h3>Existing  Managers</h3>
                                                 
-                                             <?php
-	
-		
-		
+<?php
 		$rs2 = mysqli_query($con,"select * from t_admin");
 		
            
