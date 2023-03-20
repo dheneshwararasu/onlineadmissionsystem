@@ -3,12 +3,6 @@ error_reporting(0);
 session_start();
 include 'fileupload.php';
 
-//Check if the user is logged in
-if (!isset($_SESSION['id'])){
-    header('Location: index.php');
-    exit();
-}
-
 ?>
 
 <html>
@@ -36,6 +30,7 @@ if (!isset($_SESSION['id'])){
     </head>
 
     <body style="background-image:url('./images/inbg.jpg');">
+    <?php include 'usersession.php';?>
         <form id="docup" enctype="multipart/form-data" name="docup" action="documents.php" method="post">
             <div class="container-fluid">    
                 <div class="row">

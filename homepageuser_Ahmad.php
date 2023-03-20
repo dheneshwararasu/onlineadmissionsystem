@@ -1,7 +1,7 @@
 <?php
 
-    session_start();
-    error_reporting(0);
+session_start();
+error_reporting(0);
 
 $con=mysqli_connect("localhost","root","","oas");
 $q=mysqli_query($con,"select s_name from t_user_data where s_id='".$_SESSION['user']."'");
@@ -9,22 +9,16 @@ $n=  mysqli_fetch_assoc($q);
 $stname= $n['s_name'];
 $id=$_SESSION['user'];
 
-
 $sta=mysqli_query($con,"select s_stat from t_status where s_id='".$_SESSION['user']."'");
 $stat=  mysqli_fetch_assoc($sta);
 $stval= $stat['s_stat'];
 
-
- 
-
 $result = mysqli_query($con,"SELECT * FROM t_user WHERE s_id='".$_SESSION['user']."'");
+while($row = mysqli_fetch_array($result))
+{
 
-
-                    while($row = mysqli_fetch_array($result))
-                      {
-
-                       
 ?>
+
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
@@ -38,11 +32,8 @@ $result = mysqli_query($con,"SELECT * FROM t_user WHERE s_id='".$_SESSION['user'
     </head>
     <body style="background-image:url(./images/inbg.jpg) ">
         
-        <?php  
+<?php include 'usersession.php';?>
 
-include 'usersession.php';
-
-?>
       <form id="admin" action="admin.php" method="post">
             <div class="container-fluid">    
                 <div class="row">
