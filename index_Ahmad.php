@@ -7,7 +7,7 @@ if(!isset($con))
 }
 
 // Set a maximum number of attempts before locking out the user
-$max_attempts = 5;
+$max_attempts = 8;
 
 // Check if the user has exceeded the maximum number of attempts
 if (isset($_SESSION['failed_attempts']) && $_SESSION['failed_attempts'] >= $max_attempts) {
@@ -59,8 +59,8 @@ if (isset($_SESSION['id']))
         $_SESSION['failed_attempts']++;
     }
     echo '<script>';
-    echo 'Invalid username or password. Please try again.';
-    exit;
+    echo 'alert("Invalid username or password. Please try again.")';
+    echo '</script>';
    }
    
    if($res1)
@@ -77,13 +77,13 @@ if (isset($_SESSION['id']))
         $_SESSION['failed_attempts']++;
     }
     echo '<script>';
-    echo 'Invalid username or password. Please try again.';
-    exit;
+    echo 'alert("Invalid username or password. Please try again.")';
+    echo '</script>';
    }
   }
  else
  {
-     echo '<script>';
+    echo '<script>';
     echo 'alert("Enter both username and password")';
     echo '</script>';
  

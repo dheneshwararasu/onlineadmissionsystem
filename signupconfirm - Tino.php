@@ -112,7 +112,7 @@ if(isset($_REQUEST["in_sub"]))
 		</script>
 	</head>
 	<body style="background-image:url('./images/inbg.jpg');">
-		<form id="signupconfirm" action="signupconfirm.php" method="post">
+		<form id="signupconfirm" action="signupconfirm - Tino.php" method="post">
 			<div id="dvlogin" style="box-shadow: 0px 5px 10px #999999"> <?php
                         
                     ?> </div>
