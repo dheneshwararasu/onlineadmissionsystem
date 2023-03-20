@@ -84,18 +84,6 @@ input[type="text"]
     box-shadow: 2px 1px 5px #999999; 
 }
 
-input[type="password"]
-{
-    border-top-right-radius: 20px;
-    border-bottom-right-radius: 20px;
-    height:35px;
-    width:380px;
-    border-style: none; 
-    margin-left: 30px;
-    box-shadow: 2px 1px 5px #999999; 
-}
-
-
 input[type="email"]
 {
     border-top-right-radius: 20px;
@@ -109,6 +97,17 @@ input[type="email"]
 
 
 input[type="number"]
+{
+    border-top-right-radius: 20px;
+    border-bottom-right-radius: 20px;
+    height:35px;
+    width:380px;
+    border-style: none; 
+    margin-left: 30px;
+    box-shadow: 2px 1px 5px #999999; 
+}
+
+input[type="password"]
 {
     border-top-right-radius: 20px;
     border-bottom-right-radius: 20px;

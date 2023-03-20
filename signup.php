@@ -2,6 +2,7 @@
 error_reporting(0);
 ?>
 
+
 <html>
 	<head>
 		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
@@ -197,12 +198,7 @@ error_reporting(0);
 						</tr>
 						<tr>
 							<td style="padding-bottom: 1em;">
-								<input type="password" name="password" required="true">
-							</td>
-						</tr>
-                        <tr>
-							<td style="padding-bottom: 1em;">
-								<input type='text' id='txt_captcha' name='txt_captcha' placeholder="Enter the code" required="true">
+								<input type="password" name="password" VT="PW" required="true">
 							</td>
 						</tr>
 						<tr>

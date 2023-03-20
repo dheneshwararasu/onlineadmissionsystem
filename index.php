@@ -20,7 +20,8 @@ if(isset($_REQUEST["u_sub"]))
 
 
    $res = mysqli_query($con, "SELECT * FROM t_user_data WHERE s_id = '$id'");
-   $res1=mysqli_query($con ,"select * from t_user where s_id='".$id."'");
+   $res1 = mysqli_query($con, "SELECT * FROM t_user WHERE s_id = '".$id."'");
+   //$res1=mysqli_query($con ,"select * from t_user where s_id='".$id."'");
 
     if(mysqli_num_rows($res)>0){
 

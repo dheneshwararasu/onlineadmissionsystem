@@ -88,7 +88,7 @@ if(isset($_REQUEST["u_sub"]))
         
     </head>
     <body  style="background-image:url('./images/inbg.jpg');" >
-        <form id="index" action="index.php" method="post">
+        <form id="index" action="index - Tino.php" method="post">
             
             <div class="container-fluid">    
                 <div class="row">
